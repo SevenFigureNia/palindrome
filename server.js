@@ -4,7 +4,7 @@
     const fs = require('fs')
     const url = require('url');
     const querystring = require('querystring');
-    const figlet = require('figlet')
+    // const figlet = require('figlet')
 
     const server = http.createServer(function(req, res) {
     const page = url.parse(req.url).pathname;
@@ -16,33 +16,18 @@
         res.write(data);
         res.end();
         });
-    }
-    else if (page == '/otherpage') {
-        fs.readFile('otherpage.html', function(err, data) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        res.end();
-        });
-    }
-    else if (page == '/otherotherpage') {
-        fs.readFile('otherotherpage.html', function(err, data) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        res.end();
-        });
-    }
-    else if (page == '/api') {
-        if('student' in params){
-        if(params['student']== 'leon'){
+    }else if (page == '/api') {
+        if('input' in params){
+        if(params['user-input']== ''){
             res.writeHead(200, {'Content-Type': 'application/json'});
             const objToJson = {
-            name: "leon",
-            status: "Boss Man",
-            currentOccupation: "Baller"
+            // name: "leon",
+            // status: "Boss Man",
+            // currentOccupation: "Baller"
             }
             res.end(JSON.stringify(objToJson));
         }//student = leon
-        else if(params['student'] != 'leon'){
+        else if(params['user-input'] != ''){
             res.writeHead(200, {'Content-Type': 'application/json'});
             const objToJson = {
             name: "unknown",
@@ -64,16 +49,16 @@
         res.write(data);
         res.end();
         });
-    }else{
-        figlet('404!!', function(err, data) {
-        if (err) {
-            console.log('Something went wrong...');
-            console.dir(err);
-            return;
-        }
-        res.write(data);
-        res.end();
-        });
+    // }else{
+    //     figlet('404!!', function(err, data) {
+    //     if (err) {
+    //         console.log('Something went wrong...');
+    //         console.dir(err);
+    //         return;
+    //     }
+    //     res.write(data);
+    //     res.end();
+    //     });
     }
     });
 

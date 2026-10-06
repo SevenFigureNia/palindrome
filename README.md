@@ -13,6 +13,9 @@ Create a simple web application that uses the fs and http modules to validate if
 1. input a name 
 2. generates to see if its a palindrone or not.
 
+## Struggles
+1. trying to get both server and Dom side to work
+
 ## Future Improvements
 - Add css
 
